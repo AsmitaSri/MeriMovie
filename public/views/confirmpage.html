@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Ticket Confirmation Page</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  </head>
+  <body>
+     <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+    <div class="container"> -->
+	<div class="row">
+		<div class="col-md-12 alert alert-success" >
+			<h2>
+				<b><i style="font-size:24px;" class="fa">&#xf00c;  Thank you for purchase!</i></b>
+			</h2>
+
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<img alt="Rustom" src="{{pos}}" class="img-thumbnail">
+		</div>
+		<div class="col-md-4">
+			<h2>
+				{{var}} (U/A)
+			</h2>
+			<p>
+				{{theater}} , {{city}}
+			</p>
+    	<p>
+
+			</p>
+      <p>
+        <b> Quantity: {{noseats}}</b>
+      </p>
+      <p>
+        <img alt="Seat" src="images/ticket.jpg" style="width:50px;height:50px;" class="img-thumbnail"><b> Seats-{{seats}} </b>
+      </p>
+    <table style="width:100%">
+      <tr>
+      <td><b>Ticket Price:</b></td>
+      <td><b>{{totfare}}</b></td>
+    </tr>
+    <tr>
+    <td><b>Internet handling fees:</b></td>
+    <td><b>Rs.50</b></td>
+  </tr>
+  </table>
+  <br>
+  <table style="width:100%">
+        <tr>
+      <td>
+        <font size="5px">Amount paid</font>
+      </td>
+      <td>
+      <font size="5px"> {{totfare}}+50</font>
+      </td>
+    </tr>
+  </table>
+		</div>
+		<div class="col-md-4">
+			<img alt="Barcode" src="images/barcode.png" style="width:125px;height:125px;">
+      <p>
+
+      </p>
+      <p>
+        BOOKING ID
+      </p>
+      </p>
+      <p>
+        <b>WW782358E</b>
+      </p>
+		</div>
+	</div>
+  <br>
+  <br>
+  <br>
+	<div class="row">
+		<div class="col-md-4">
+			<h5>
+				<b>BOOKING DATE &amp; TIME</b>
+			</h5>
+			<p>
+       Thu, 14 Jul, 2016 , 3:04pm
+			</p>
+		</div>
+		<div class="col-md-4">
+			<h5>
+				<b>CONFIRMATION ID</b>
+			</h5>
+			<p>
+			  123456789
+			</p>
+		</div>
+	</div>

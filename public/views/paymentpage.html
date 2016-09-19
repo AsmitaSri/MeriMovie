@@ -1,0 +1,198 @@
+  <div class="row">
+  		<div class="col-md-1">
+  		</div>
+  		<div class="col-md-10">
+  			<div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-6" id="payhd"><h3>Payment Details</h3></div>
+          <div class="col-md-1"></div>
+          <div class="col-md-4" id="ordersumm"><h3>Order Details</h3></div>
+        </div>
+  			<div class="row">
+          <div class="col-md-12">&nbsp;</div>
+        </div>
+  			<div class="row">
+          <div class="col-md-1"></div>
+  				<div class="col-md-6">
+            <fieldset class="fldset">
+            <form role="form">
+						<div class="form-group">
+              <label class="paylbl">Name</label>
+              <div class="input-group col-sm-10">
+							<input class="form-control" placeholder="Enter Name" ng-model="username" required />
+              <span class="input-group-addon"></span>
+						</div>
+            </div>
+						<div class="form-group">
+							<label class="paylbl">Email</label>
+              <div class="input-group col-sm-10">
+							<input class="form-control" placeholder="Enter Email" ng-model="emailid" required/>
+              <span class="input-group-addon"></span>
+            </div>
+						</div>
+						<div class="form-group">
+							<label class="paylbl">Contact</label>
+              <div class="input-group col-sm-10">
+							<input class="form-control" placeholder="Enter Phone" ng-model="phone" required maxlength="10" />
+              <span class="input-group-addon"></span>
+            </div>
+						</div>
+						<div class="form-group">
+							<label class="paylbl">Card Number</label>
+              <div class="input-group col-sm-10">
+							<input type="text" class="form-control" placeholder="Enter Valid Card Number" id="Cardno" required maxlength="16" />
+              <span class="input-group-addon"></span>
+            </div>
+						</div>
+						<div class="form-group">
+							<label class="paylbl"style="margin-right:10px;">Expiry</label>
+              <div class="input-group col-sm-10">
+                <span class="input-group-addon">MM</span>
+                <input type="text" class="form-control" placeholder="Enter Month" id="ExpM" required maxlength="2" />
+                <span class="input-group-addon">/</span>
+                <input type="text" class="form-control" placeholder="Enter Year" id="ExpY" required maxlength="4" />
+                <span class="input-group-addon">YY</span>
+            </div>
+            </div>
+            <div class="form-group">
+							<label class="paylbl"style="margin-right:10px;">CVV</label>
+              <div class="input-group col-sm-10">
+                <input type="text" class="form-control" placeholder="CVV" id="CVV" required maxlength="3" />
+                <span class="input-group-addon"></span>
+            </div>
+						</div>
+						<button class="btn btn-primary" id="paybtn" name="btnpay" ng-click="makepayment()">Pay Now</button>
+          </fieldset>
+					</form>
+  				</div>
+          <div class="col-md-1"></div>
+  				<div class="col-md-4">
+  					<table class="table">
+  						<tbody>
+  							<tr>
+  								<td>
+  									Movie
+  								</td>
+  								<td>
+                    {{tit}}
+  								</td>
+  							</tr>
+  							<tr>
+  								<td>
+  									Theater
+  								</td>
+  								<td>
+                    {{th}}
+  								</td>
+  							</tr>
+  							<tr>
+  								<td>
+  									Seat No
+  								</td>
+  								<td>
+                    {{ts}}
+  								</td>
+  							</tr>
+  							<tr>
+  								<td>
+  									Show Timings
+  								</td>
+  								<td>
+                    {{tm}}
+  								</td>
+  							</tr>
+  							<tr>
+  								<td>
+  									Total Tickets
+  								</td>
+  								<td>
+                    {{ns}}
+  								</td>
+  							</tr>
+  							<tr>
+  								<td>
+  									Amount
+  								</td>
+  								<td>
+                    {{tf}}
+  								</td>
+  							</tr>
+  						</tbody>
+  					</table>
+  				</div>
+  			</div>
+  		</div>
+  		<div class="col-md-1">
+  		</div>
+  	</div>
+
+
+<div class="row">
+  <div class="col-md-12">&nbsp;</div>
+</div>
+<!-- <div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-3"><h3>Name :</h3> <input ng-model="payment.username" maxlength="30"></div>
+  <div class="col-md-4"><h3>Email :</h3> <input ng-model="payment.emailid"></div>
+  <div class="col-md-3"><h3>Phone :</h3> <input ng-model="payment.phone" maxlength="10"></div>
+  <div class="col-md-1"></div>
+
+</div>
+<hr> -->
+<div class="row">
+  <div class="col-md-12">&nbsp;</div>
+</div>
+  <!-- <div class="row">
+		<div class="col-md-1"></div>
+  		<div class="col-md-8" style="height:350px;background-color:lightgrey;">
+      <div class="payt">Pay Using :<img src="images/cards.png" width="100"  alt=""></img> </div><br>
+      <br>
+      <div class="col-md-8" id="cardbox">
+        <label for="cardno">Enter Card No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input type="text" placeholder="Card Number" name= "cardno" size ="25"/><br><br>
+        <label>Expiry Date &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <select name="month"><option>mm</option>
+        <option>Jan</option>
+        <option>Feb</option>
+        <option>Mar</option>
+        <option>Apr</option>
+        <option>May</option>
+        <option>Jun</option>
+        <option>Jul</option>
+        <option>Aug</option>
+        <option>Sep</option>
+        <option>Oct</option>
+        <option>Nov</option>
+        <option>Dec</option>
+        </select>&nbsp;&nbsp;
+        <select name="year"><option>yy</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+        <option>2020</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+        <option>2026</option>
+        <option>2027</option>
+        <option>2028</option>
+        <option>2029</option>
+        <option>2030</option>
+</select> <br><br> <label for="cvv">CVV No </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" placeholder="CVV" size="10" maxlength="3" name= "CVV"/> &nbsp; <img src="images/cvv.jpg" alt="" /><br><br>
+<label for="holder">Name on card </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="holder" placeholder="Cardholder Name" size="25"/><br><br>
+<button class="btn btn-primary" id="paybtn" name="btnpay" ng-click="makepayment()">Pay Now</button>
+		</div>
+	</div>
+	<div class="col-md-2" style="height:350px;">&nbsp;</div>
+</div> -->
+
+<div class="row">
+  <div class="col-md-12">
+    &nbsp;
+</div>
+  </div>
+</body>
+</html>

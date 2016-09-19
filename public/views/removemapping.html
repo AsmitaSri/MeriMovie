@@ -1,0 +1,59 @@
+<div class="row">
+<div class="col-md-1">
+
+</div>
+<div class="col-md-10">
+      <h1>Delete Movie Mapping</h1>
+    <table class="table table-condensed table-bordered">
+    <tr><td>
+    CITY
+  </td>
+  <td>
+    <select ng-model="mapping1.City">
+        <option ng-repeat="o in theaterData | unique:'city'" value="{{o.city}}">{{o.city}}</option>
+    </select>
+  </td></tr>
+ <tr><td>
+    THEATER
+  </td>
+  <td>
+<select ng-model="mapping1.Theater">
+  <option  ng-repeat="t in theaterData | filter :mapping1.City">{{t.name}}</option>
+</select>
+</td></tr>
+<tr><td colspan="2" align="center">
+<button ng-click="showMapping()" class="btn btn-primary btn-lg" style="padding: 10px 50px">SHOW MAPPING</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="row" style="margin-top:20px">
+  <div class="col-md-1">
+
+  </div>
+  <div class="col-lg-10">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th>Title</th>
+        <th>City</th>
+        <th>Theater</th>
+        <th>Date</th>
+        <th>Show Timings</th>
+        <th>Delete</th>
+      </tr>
+        <tr ng-repeat="s in searchmovieData | filter :mapping1.City">
+          <td>{{s.Title}}</td>
+          <td>{{s.City}}</td>
+          <td>{{s.Theater}}</td>
+          <td>{{s.ShowDate}}</td>
+          <td>{{s.ShowTiming}}</td>
+          <td><button ng-click="deleteMapping(s)" class="btn btn-danger glyphicon glyphicon-floppy-remove" onclick="this.parentElement.style.display='none';"></button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+  </div>
+</div>

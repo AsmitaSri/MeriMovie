@@ -1,0 +1,154 @@
+<div class="row">
+<div class="col-md-1">
+
+</div>
+<div class="col-md-10">
+  <h3>Map Movies and Theaters
+  <div style="float:right;"><a href="#/admin"><button type="button" class="btn btn-primary">Back</button></a></div></h3>
+</h3><br>
+<table class="table table-condensed">
+  <tr>
+    <th>
+      <h4>Select Movie</h4>
+    </th>
+    <td>
+      <select class="form-control" ng-model="mapping.moviename">
+        <option></option>
+        <option ng-repeat="m in movieData">{{m.Title}}</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <h4>Select City</h4>
+    </th>
+    <td>
+      <select class="form-control" ng-model="mapping.city">
+        <option ng-repeat="t in theaterData | unique:'city'" value="{{t.city}}">{{t.city}}</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <h4>Select Theater</h4>
+    </th>
+    <td>
+      <select class="form-control" ng-model="mapping.theater">
+        <option></option>
+        <option ng-repeat="t in theaterData | filter:mapping.city">{{t.name}}</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <h4>Date</h4>
+    </th>
+    <td>
+      <input id="datepicker" ng-model="ShowDate"/>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <h4>Show Timings</h4>
+    </th>
+    <td>
+      <select class="form-control" id="hours" ngmodel="hour">
+        <option></option>
+        <option value="12">12</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+      </select> : <select class="form-control" id="minutes" ngmodel="minute">
+        <option></option>
+        <option value="00">00</option>
+        <option value="05">05</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+        <option value="45">45</option>
+        <option value="50">50</option>
+        <option value="55">55</option>
+      </select> &nbsp;&nbsp; <select class="form-control" id="ampm" ngmodel="ap">
+        <option></option>
+        <option value="AM">AM</option>
+        <option value="PM">PM</option>
+      </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="addtime" class="btn btn-primary">Add Show Time</button>&nbsp;&nbsp;
+      <select ng-model="mtime" id="restime" multiple></select>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <button class="btn btn-primary btn-lg" ng-click="addMapping()">Add Mapping</button>
+    </td>
+  </tr>
+</table>
+</div>
+<div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-12">&nbsp;</div>
+</div>
+<div class="row">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>
+
+          </th>
+          <th>
+            City
+          </th>
+          <th>
+            Theater
+          </th>
+          <th>
+            Movie
+          </th>
+          <th>
+            Show Dates
+          </th>
+          <th>
+            Show Timings
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="md in mappingData">
+          <td>
+            <button class="btn btn-danger glyphicon glyphicon-floppy-remove" ng-click="deleteMapping(md)">&times;</button>
+          </td>
+          <td>
+            {{md.City}}
+          </td>
+          <td>
+            {{md.Theater}}
+          </td>
+          <td>
+            {{md.Title}}
+          </td>
+          <td>
+            {{md.ShowDate}}
+          </td>
+          <td ng-repeat="t in md.ShowTiming">
+            {{t}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>

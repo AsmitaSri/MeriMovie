@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10" style="background-color:white;">
+    <table class="table">
+      <tr>
+        <td width="45%">
+          <img src="{{pos}}" width="150px" height="150px"/>
+          <h3 style="position:absolute;top:10px;left:200px;">{{var}}</h3>
+          <br>
+          <h5 style="position:absolute;top:50px;left:200px;">{{genre}}</h5>
+        </td>
+        <td>
+          <p>Select City</p>
+          <select ng-model="city" class="form-control">
+            <option ng-repeat="mp in theaterData | unique:'city'">{{mp.city}}</option>
+          </select>
+          <p>Select Date</p>
+          <select ng-model="myDate" class="form-control">
+            <option ng-repeat="dt in movDates">{{dt | date:'dd, MMM yyyy'}}</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>
+<div class="row">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10" style="background-color:white;">
+    <div id="loclist">
+      <table class="table table-bordered">
+        <tr>
+          <th style="width:150px;">City</th>
+          <th>Theaters</th>
+          <th>Show Timings</th>
+        </tr>
+        <tr ng-show="myDate" ng-repeat="mp in mappingData | filter : {Title:var,City:city} | filter:myDate">
+          <td>{{mp.City}}</td>
+          <td>{{mp.Theater}}</td>
+          <td>
+            <button ng-repeat="t in mp.ShowTiming" id="time" class="btn-primary btn" ng-click="storedata(t,mp)">{{t}}</button>&nbsp;
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-1">&nbsp;</div>
+</div>

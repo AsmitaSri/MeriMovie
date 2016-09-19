@@ -1,0 +1,406 @@
+<html>
+<head>
+	<title>Admin Page</title>
+	<link rel="stylesheet" href="../css/tab.css" charset="utf-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--Navbar Starts-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--Navbar Ends-->
+
+
+<div class="container">
+	<div class="row">
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11 bhoechie-tab-container">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  <h3 class="glyphicon glyphicon-facetime-video"></h3><br/>Manage Theatre
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h3 class="glyphicon glyphicon-film"></h3><br/>Manage Movies
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <p class="glyphicon glyphicon-arrow-left"></p><br/>
+                  <p class="glyphicon glyphicon-arrow-right"></p><br/>Map Movies and Theatres
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-remove"></h4><br/>Delete Mapping
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-credit-card"></h4><br/>Credit Card
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+								<!-- Theater Manager -->
+                <div class="bhoechie-tab-content active">
+                    <center>
+										<h3>Add Theaters</h3>
+											<table class="table">
+												<thead>
+													<tr>
+														<th>
+															Theater name
+														</th>
+														<th>
+															Theater City
+														</th>
+														<th>
+															Theater Location
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td><input ng-model="theater.theatername"></td>
+														<td><input ng-model="theater.theatercity"></td>
+														<td><input ng-model="theater.theaterloc"></td>
+													</tr>
+													<tr>
+														<td colspan="3" align="center">
+															<button class="btn btn-primary" ng-click="addtheater()">Add Theater</button>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+
+											<table class="table table-striped">
+												<tr>
+													<th>
+													Theater Name
+													</th>
+													<th>
+														City
+													</th>
+													<th>
+														Location
+													</th>
+													<th>
+
+													</th>
+												</tr>
+												<tr ng-repeat="t in movieData">
+													<td>
+														{{t.name}}
+													</td>
+													<td>
+														{{t.city}}
+													</td>
+													<td>
+														{{t.location}}
+													</td>
+													<td>
+														<button class="btn btn-danger" ng-click="deleteTheater(t)">Delete Theater</button>
+													</td>
+												</tr>
+											</table>
+                    </center>
+                </div>
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+									<h2>Search Movie</h2>
+									<!--Movie Manager-->
+
+									<table class="table ">
+										<tr>
+											<th>
+												Title : <input ng-model="moviename">
+											</th>
+											<th>
+												Year : <input ng-model="year">
+											</th>
+											<th>
+												<button class="btn btn-primary" id="showhide" ng-click="searchmovie()">Search Movie</button>
+											</th>
+										</tr>
+									</table>
+
+									<div id="searchdata">
+									<table class="table table-striped">
+										<tr>
+											<th>
+												Poster
+											</th>
+											<th>
+												Title
+											</th>
+											<th>
+												Genre
+											</th>
+											<th>
+												Language
+											</th>
+											<th>
+
+											</th>
+										</tr>
+										<tr>
+											<td>
+												<img src="{{movieDetails.Poster}}" width="100" height="150" alt="no image" />
+											</td>
+											<td>
+												{{movieDetails.Title}}
+											</td>
+											<td>
+												{{movieDetails.Genre}}
+											</td>
+											<td>
+												{{movieDetails.Language}}
+											</td>
+											<td>
+												<button class="btn btn-primary" ng-click="addmovie()">Add Movie</button>
+											</td>
+										</tr>
+									</table>
+									</div>
+
+									<table class="table table-striped">
+										<tr>
+											<th>Title</th>
+											<th>Genre</th>
+											<th>Language</th>
+											<th>Actors</th>
+											<th>Runtime</th>
+											<th>
+
+											</th>
+										</tr>
+										<tr ng-repeat="m in movieData">
+											<td>{{m.Title}}</td>
+											<td>{{m.Genre}}</td>
+											<td>{{m.Language}}</td>
+											<td>{{m.Actors}}</td>
+											<td>{{m.Runtime}}</td>
+											<td>
+												<button class="btn btn-danger" ng-click="deleteMovie(m)">Delete Movie</button>
+											</td>
+										</tr>
+									</table>
+                </div>
+
+                <!-- movie mapper -->
+                <div class="bhoechie-tab-content">
+                    <center>
+											<table class="table table-condensed">
+											  <tr>
+											    <th>
+											      <h4>Select Movie</h4>
+											    </th>
+											    <td>
+											      <select class="form-control" ng-model="mapping.moviename">
+											        <option></option>
+											        <option ng-repeat="m in movieData">{{m.Title}}</option>
+											      </select>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>
+											      <h4>Select City</h4>
+											    </th>
+											    <td>
+											      <select class="form-control" ng-model="mapping.city">
+											        <option ng-repeat="t in theaterData" value="{{t.city}}">{{t.city}}</option>
+											      </select>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>
+											      <h4>Select Theater</h4>
+											    </th>
+											    <td>
+											      <select class="form-control" ng-model="mapping.theater">
+											        <option></option>
+											        <option ng-repeat="t in theaterData | filter:city">{{t.name}}</option>
+											      </select>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>
+											      <h4>Date</h4>
+											    </th>
+											    <td>
+											      <input type="date" class="form-control" ng-model="mapping.mdate"/>
+											    </td>
+											  </tr>
+											  <tr>
+											    <th>
+											      <h4>Show Timings</h4>
+											    </th>
+											    <td>
+											      <select class="form-control" id="hours" ngmodel="hour">
+											        <option></option>
+											        <option value="12">12</option>
+											        <option value="1">1</option>
+											        <option value="2">2</option>
+											        <option value="3">3</option>
+											        <option value="4">4</option>
+											        <option value="5">5</option>
+											        <option value="6">6</option>
+											        <option value="7">7</option>
+											        <option value="8">8</option>
+											        <option value="9">9</option>
+											        <option value="10">10</option>
+											        <option value="11">11</option>
+											      </select> : <select class="form-control" id="minutes" ngmodel="minute">
+											        <option></option>
+											        <option value="00">00</option>
+											        <option value="05">05</option>
+											        <option value="10">10</option>
+											        <option value="15">15</option>
+											        <option value="20">20</option>
+											        <option value="25">25</option>
+											        <option value="30">30</option>
+											        <option value="35">35</option>
+											        <option value="40">40</option>
+											        <option value="45">45</option>
+											        <option value="50">50</option>
+											        <option value="55">55</option>
+											      </select> &nbsp;&nbsp; <select class="form-control" id="ampm" ngmodel="ap">
+											        <option></option>
+											        <option value="AM">AM</option>
+											        <option value="PM">PM</option>
+											      </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="addtime" class="btn btn-primary">Add Show Time</button>&nbsp;&nbsp;
+											      <select ng-model="mtime" id="restime" multiple></select>
+											    </td>
+											  </tr>
+											  <tr>
+											    <td colspan="2" align="center">
+											      <button class="btn btn-primary btn-lg" ng-click="addMapping()">Add</button>
+											    </td>
+											  </tr>
+											</table>
+											<script>
+											    $(document).ready(function(){
+											        $("#addtime").click(function(){
+											            var data = ($("#hours").val())+" : "+($("#minutes").val())+" "+($("#ampm").val());
+											            $('#restime').append("<option value='"+data+"'>"+data+"</option>");
+											        });
+											    });
+											  </script>
+
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+											<table class="table table-condensed table-bordered">
+									    <tr><td>
+									    CITY
+									  </td>
+									  <td>
+									    <select ng-model="mapping1.City">
+									        <option ng-repeat="o in theaterData" value="{{o.city}}">{{o.city}}</option>
+									    </select>
+									  </td></tr>
+									 <tr><td>
+									    THEATER
+									  </td>
+									  <td>
+									<select ng-model="mapping1.Theater">
+									  <option  ng-repeat="t in theaterData | filter :mapping1.City">{{t.name}}</option>
+									</select>
+									</td></tr>
+									<tr><td colspan="2" align="center">
+									<button ng-click="showMapping()" class="btn btn-primary btn-lg" style="padding: 10px 50px">SHOW MAPPING</button>
+									</td>
+									</tr>
+									</table>
+
+									<table class="table table-bordered table-hover">
+							      <tr>
+							        <th>TITLE</th>
+							        <th>CITY</th>
+							        <th>THEATER</th>
+							        <th>DATE</th>
+							        <th>SHOWTIMINGS</th>
+							        <th>DELETE</th>
+							      </tr>
+							        <tr ng-repeat="s in searchmovieData">
+							          <td>{{s.Title}}</td>
+							          <td>{{s.City}}</td>
+							          <td>{{s.Theater}}</td>
+							          <td>{{s.ShowDate}}</td>
+							          <td>{{s.ShowTiming}}</td>
+							          <td><button ng-click="deleteMapping(s)" class="btn btn-danger" onclick="this.parentElement.style.display='none';">DELETE</button></td>
+							        </tr>
+							      </table>
+                    </center>
+                </div>
+                <div class="bhoechie-tab-content">
+                    <center>
+                      <h1 class="glyphicon glyphicon-credit-card" style="font-size:12em;color:#55518a"></h1>
+                      <h2 style="margin-top: 0;color:#55518a">Cooming Soon</h2>
+                      <h3 style="margin-top: 0;color:#55518a">Credit Card</h3>
+                    </center>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+<script>
+
+$(document).ready(function() {
+    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    });
+});
+</script>
+</body>
+</html>

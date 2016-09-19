@@ -1,0 +1,125 @@
+
+<div class="row">
+<div class="col-xs-1">&nbsp;</div>
+<div id="the-slider" class="carousel slide col-xs-10" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#the-slider" data-slide-to="0" class="active"></li>
+    <li data-target="#the-slider" data-slide-to="1"></li>
+    <li data-target="#the-slider" data-slide-to="2"></li>
+    <li data-target="#the-slider" data-slide-to="3"></li>
+  </ol>
+
+  <div class="carousel-inner">
+
+    <div class="item active">
+      <img src="../images/dark_knight_rises.jpg" width="1000px"alt="">
+    </div> <!--item 1-->
+
+    <div class="item">
+      <img src="../images/dishoom.jpg" width="1000px"alt="">
+    </div> <!--item 2-->
+
+    <div class="item">
+      <img src="../images/mohenjodaro.jpg" width="1000px"alt="">
+    </div> <!--item 3-->
+
+    <div class="item">
+      <img src="../images/Raees.jpg" width="1000px"alt="">
+    </div> <!--item 4-->
+
+  </div><!--carousel-inner-->
+<!--Controls-->
+
+<a class="left carousel-control" href="#the-slider" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+
+<a class="right carousel-control" href="#the-slider" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+</div><!--slider-->
+<div class="col-xs-1">&nbsp;</div>
+</div> <!--row 2-->
+
+<div class="row">
+&nbsp;
+</div>
+
+<!--thumbnails here-->
+<div class="row">
+  <div class="col-xs-1">&nbsp;</div>
+		<div class="col-sm-10" style="background-color:white;">
+    <div class="row">
+		<div class="col-md-3" ng-repeat="m in movieData | filter:{Status:'true'}">
+		<img src="{{m.Poster}}" alt="POSTER"  width="180" height="240"  >
+		<div class="booktab">
+		<p> {{m.Title}}</p>
+
+      <div style="width:120px;float:right;" ng-controller="RatingCtrl">
+          <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+          <!-- <span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 &amp;&amp; percent<70, 'label-success': percent>=70}" ng-show="overStar &amp;&amp; !isReadonly">{{percent}}%</span> -->
+      </div>
+<br>
+		<span class="label label-info"> {{m.Language}}</span><br/>
+		<span class="label label-info">{{m.Genre}}</span></div>
+<button class="btn-primary btn" id="review" style="font-size:10px;" ng-click="readreview(m.Title,m.Poster)">Read Reviews</button>
+	<br>
+  <button class="btn btn-primary" style="width:180px !important" ng-click=bookmovie(m.Title,m.Poster,m.Genre)>Book Now</button><br/></br/><br/>
+	</div>
+    </div>
+		</div>
+    <div class="col-xs-1">&nbsp;</div>
+	</div>
+</div>
+
+
+
+
+<!-- <script>
+$(document).ready(function(){
+//  Check Radio-box
+    $(".rating input:radio").attr("checked", false);
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+/*$('input:radio').change(
+    function(){
+        var userRating = this.value;
+        alert(userRating);
+    });*/
+
+
+var c5=c4=c3=c2=c1=0;
+var v5,v4,v3,v2,v1;
+
+    $('input:radio').change(
+    function(){
+        var userRating = this.value;
+		if(userRating==5)
+		c5++;
+		else if(userRating==4)
+		c4++;
+		else if(userRating==3)
+		c3++;
+		else if(userRating==2)
+		c2++;
+		else if(userRating==1)
+		c1++;
+
+		v5=5*c5;
+		v4=4*c4;
+		v3=3*c3;
+		v2=2*c2;
+		v1=1*c1;
+
+		var rating=(v5+v4+v3+v2+v1)/(c5+c4+c3+c2+c1);
+        //alert(rating);
+
+		document.getElementById("rate").innerHTML = rating.toPrecision(3);
+    });
+});
+</script> -->

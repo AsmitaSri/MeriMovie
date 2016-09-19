@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-1">&nbsp;
+  </div>
+  <div class="col-md-10" style="background-color:white;">
+    <h3> Movie Reviews </h3>
+  </div>
+  <div class="col-md-1">&nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">&nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">&nbsp;
+  </div>
+  <div class="col-md-3" style="text-align:center;background-color:white;padding:15px;">
+    <img alt="{{mtitle}}" src="{{mpos}}" width="200" height="250"/>
+    <h2>
+  {{mtitle}}
+</h2>
+  </div>
+  <div class="col-md-7" style="background-color:white;padding-bottom:15px;">
+    <h3 class="text-left"> Review This Movie </h3>
+    <div style="border:1px solid #e0e0e0;border-radius:2px;">
+    <h5 class="text-left" style="padding:15px;margin:0px;"> Title (Optional) </h5>
+    <input ng-model="review.title" placeholder="Review title..." style="padding:15px;outline: none;border: none;width: 100%;font-size: 14px;font-weight: 400;resize: none;">
+    <hr style="background:#e0e0e0;margin:0px;"/>
+    <h5 class="text-left" style="padding:15px;margin:0px;"> Description </h5>
+    <textarea ng-model="review.desc" rows="6" placeholder="Description..." style="padding:15px;outline: none;border: none;width: 100%;font-size: 14px;font-weight: 400;resize: none;"></textarea>
+  </div>
+</div>
+<div class="col-md-1">&nbsp;
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">&nbsp;
+  </div>
+</div>
+<div class="row" style="background-color:white;">
+  <div class="col-md-4"> </div>
+  <div class="col-md-4"> </div>
+  <div class="col-md-4" style="text-align:right;">
+    <button ng-click="addreview()" class="btn btn-success btn-lg"> Leave a Review </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">&nbsp;
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-10">
+    <div class="bg-primary" id="rev" ng-repeat="r in reviewData| filter : {moviename:mtitle}">
+    <h4>{{r.reviewtitle}}</h4>
+    <p>{{r.description}}</p>
+  </div>
+</div>
+  <div class="col-md-1">&nbsp;</div>
+</div>

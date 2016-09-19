@@ -1,0 +1,41 @@
+#rate
+{
+margin-top:0px;
+margin-bottom:0px;
+left: 110px;
+top: 250px;
+}
+
+.rating {
+    float: right;
+    position: absolute;
+    left: 110px;
+    top: 245px;
+}
+.rating span { float:right; position:relative; }
+.rating span input {
+    position:absolute;
+    top:0px;
+    left:0px;
+    opacity:0;
+}
+.rating span label {
+    display:inline-block;
+    width:15px;
+    height:15px;
+    text-align:center;
+    color:#FFF;
+    background:#ccc;
+    font-size:30px;
+    margin-right:2px;
+    line-height:30px;
+    border-radius:50%;
+    -webkit-border-radius:50%;
+}
+.rating span:hover ~ span label,
+.rating span:hover label,
+.rating span.checked label,
+.rating span.checked ~ span label {
+    background:#F90;
+    color:#FFF;
+}
